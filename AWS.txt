@@ -1,0 +1,294 @@
+# RESPONSABILIDADE COMPARTILHADA 
+
+
+# AUDITORIA E RELATÓRIOS
+
+    # AWS KMS
+        # Criptrografia em alguns contextos 
+
+    # CloudTrail - Monitoramento de ações na conta
+        # Data Event 
+        # Management Event 
+
+    # CloudWatch  (BI  da infra)
+        # Logs da aplicação 
+        # Métricas da aplicação
+        # Criação de dashbords  
+
+    # AWS Config 
+        # Histórico de configurações e mudanças nelas
+
+
+# IDENTIFICAÇÃO DOS RECURSOS DE GERENCIAMENTO DE ACESSO DA AWS
+
+    # Regra de privilégios mínimos 
+    # Controle e auditoria 
+
+    # IAM (Identity and Access Management) - [AD]
+
+        # Criação de usuários com login e senha 
+        # Gerenciamento da complexidade das senhas dos usuários
+        # Controle de autenticação MFA
+
+
+        # 1. User 
+        # 2. Groups 
+
+        # 3. Roles (Função)
+
+            # Nível de acesso na camada de aplicação 
+
+        # 4. Políticas 
+            
+            # Direcionando mais de uma permissão ao mesmo tempo 
+
+    # Conta raiz da AWS (Acessos privilégiados)
+
+        # Tem acesso as infromações financeiras 
+        # Não é utilizada para ações diárias (em função dos privilégios de acesso)
+        # Importante utilizar o MFA
+
+# IDENTIFICAÇÃO DE RECURSOS PARA SUPORTE DE SEGURANÇA 
+
+    # Segurança da rede 
+
+        # Amazon WAF (firewall de aplicação web)
+        # Network Acess
+        # Securit Groups
+        # AWS Marketplace 
+  
+    # Trusted Advisor 
+
+        # Recomendações de boas práticas na  AWS
+
+
+
+
+---------------------------------- // 
+
+# DEFINIÇÃO DE MÉTODO DE IMPLANTAÇÃO E OPERAÇÃO NA NUVEM DA AWS
+
+
+    # Como provisionar recursos na nuvem?
+
+        # SDKs/APIs
+        # Console Gerenciamento AWS
+        # CLI 
+        # Infra as code 
+        # AWS CDK 
+
+    
+    # Métodos de implantação na nuvem 
+
+        # Local
+        # Hibrído 
+        # Full Cloud
+
+    # Regiões, zonas de disponibilidades e edge locations 
+
+        # Região - Macro que contém zonas de disponibilidades
+
+        # Zonas de disponibilidades - Dentro da regão tem essas zonas que contém datacenters
+
+        # Edge locations - Um meio de campo que deixa dados em cache para facilitar a conexão entre o usuário e o servidor, comum em locais onde as zonas de disponibilidade não são o suficiente em função da distância. 
+
+            # SERVIÇOS QUE USAM O EDGE LOCATIONS 
+
+                # Amazon CloudFront - Utiliza as edge locations para realizar o cahce dos dados, aumentando assim a eficiencia de sites e aplicações. 
+
+                # AWS Global Accerator - IPs estáticos 
+
+                #  Redundâncias na AWS - 
+            
+
+
+
+# SERVIÇOS NA AWS
+
+
+# TECNOLOGIAS NA AWS 
+
+    # COMPUTAÇÃO 
+    # REDES
+    # ARMAZENAMENTO 
+    # BANCO DE DADOS
+
+
+
+# S3 x EBS x EFS 
+
+# ARMAZENAMENTO POR OBJETO (S3)
+# ARMAZENAMENTO POR BLOCO (EBS)
+# ARMAZENAMENTO POR ARQUIVO (EFS) ------ COMPARTILHAMENTO DE ARQUIVOS
+
+# AWS STORAGE GATEWAY ------ CLOUD HIBRIDA
+    # FILE GATEWAY ------ CASOS DE USO MAIS GERAIS (?)
+    # VOLUME GATEWAY ------ ARMAZENAMENTO HIBRIDO 
+    # TAPE GATEWAY ------ BACKUPS, ARQUIVOS RARAMENTE ACESSADOS 
+
+
+# FILE
+    # Amazon EFS
+# BLOCK 
+    # Amazon EBS
+    # Amazon EC2 instance store 
+# Object 
+    # Amazon S3 (várias classes importante estudar) ------ Possibilidade de mudar de classes 
+    # Amazon Glacier ------ Dados raramente acessados 
+
+
+
+# SERVIÇOS DE REDE NA AWS 
+
+# VPC - VIRTUAL PRIVATE CLOUD 
+    # SUBNETS ------ AZs DIFERENTES 
+        # NETWORK ACCESS CONTROL LIST 
+
+    # ROUTE TABLES
+    # INTERNET GATEWAY ------ CONEXÃO COM A INTERNET
+
+# SECURITY GROUPS 
+    # REGRAS DE SEGURANÇA PARA:
+        # IN 
+        # OUT 
+
+# ROUTE 53 ------ DNS DA AWS (1:30 - 2/3)
+    # MAPEIA IPs PARA DOMÍNIOS 
+
+    # ROTA SIMPLES 
+    # FAILOVER ROUTING 
+    # GEOLOCATION ROUTING 
+    # GEO PROXIMITY ROUTING 
+    # LATENCY-BASED ROUTING 
+    # MULTIVALUE ANSWER ROUTING 
+    # WEIGHTED ROUTING 
+
+
+    # TIPOS DE RECORD 
+        # O que é um record?
+        # alias
+        # A - um IPs
+        # CNAME 
+        # MX
+
+# AMAZON CLOUDFRONT 
+    # CDN 
+    # Distribuição com baixa latência 
+    # Vídeos tbm 
+
+# VPN
+    # Site to site VPN 
+    # Client VPN 
+    # VPN Cloud Hub
+
+# AMAZON DIRECT CONNECT 
+    # CONEXÃO DEDICADA ON-PREMISES (FÍSICA)
+
+
+
+
+# SERVIÇOS DE BANCO DE DADOS  
+
+
+# RDS - BANCOS DE DADOS RELACIONAIS
+    # MySQL, Postgres, MariaDB, Oracle, SQL Server
+
+    # Amazon Aurora 
+    # Amazon Aurora Serverless 
+
+# DynamoDB - BANCO DE DADOS NÃO RELACIONAIS DA AWS 
+    # Banco Chave Valor 
+    # RCUs e WCUs
+    # Métodos de busca: Scanner ou querin (filtro por pk ou index{clonagem de uma parte do banco} )
+    # Combrança por demanda ou provisionamento 
+    
+# AMAZON REDSHIFT - BIG Data    
+    # Data Wharehouse 
+    # DataLake 
+    # banco colunar 
+
+
+# SUPORTE AOS SERVIÇOS 
+
+    # NIVEIS: BASIC, DEVELOPER, BUSINESS, ENTERPRISE 
+
+      
+    # Trusted Advisor ------ RECOMENDAÇÕES
+    # AWS Personal Health Dashbord ------ AVISOS 
+
+
+# FATURAMENTOS E PREÇOS NA AWS 
+
+# PRECIFICAÇÃO 
+    # ON-DEMAND ------ SEM A NOÇÃO DO QUE EU PRECISO 
+    # SPOT ------ PROCESSOS PEQUENOS 
+
+    # RESERVED ------ COM NOÇÃO DO QUE EU PRECISO 
+        # QUANTO MAIS ADIANTADO O PAGAMENTO, MAIOR O DESCONTO 
+
+        # POR QUANTO TEMPO É O COMPROMETIMENTO QUE EU VOU PAGAR PELA INFRA?
+        # VAI SER POSSIVEL ESCALAR?
+        # SE COMPROMETER A PAGAR EM FUNÇÃO DO TEMPO
+
+        # HOST DEDICADO (COMPLIANCE E SEGURANÇA NA VISÃO DO CLIENTE) 
+
+
+    # AWS ORGANIZATIONS (BIG COORPS)
+
+        # VÁRIOS SETORES DA EMPRESA ORGANIZADOS DENTRO DA AWS 
+
+        # VANTANGES E REDUÇÃO DE CUSTO 
+
+        # QUANTO MAIS EU USO, MENOS EU PAGO 
+
+
+# IDENTIFICAÇÃO DE RECURSOS DISPONIVEIS PARA SUPORTE DE FATURAMENTO
+
+    # COST EXPLORER ------ VISUALIZAR E COMPRENDER GASTOS NA AWS
+
+    # AWS COST USAGE AND REPORT ------ RELATÓRIOS SOBRE O USO DA INFRA, ESSE RELATÓRIO FICA ARMAZENADO NO S3
+
+    # AWS QUICK SIGHT - FERRAMENTA DE BI 
+
+    # AWS BUDGETS - ALERTAS PARA NÃO CHEGAR UM BOLETO DE 700K 
+
+    # TAGS 
+
+
+
+# AWS Well-Architected Framework
+
+
+
+
+# AWS Organizations 
+    # Políticas para pessoas/grupos na AWS
+
+
+# REDES NA AWS 
+
+
+    # VPC - ESCOPO REGIONAL 
+    # SUBNET - ESCOPO DE AZ
+
+    # COMO AS VPCs SE COMUNICAM?
+    # COMO AS SUBNET SE COMUNICAM?
+
+    # TABELAS DE ROTEAMENTO 
+
+    # NAT 
+        #  CONVERTENDO REDES PRIVADAS EM PÚBILICAS
+
+
+
+# IAM 
+    # TIPOS DE ACESSOS 
+        # 1. SERVIÇOS 
+        # 2. MANIPULAÇÃO DE SERVIÇOS 
+    
+    # CAMADAS DE ACESSO 
+        # User
+        # Role 
+        # Group 
+        # Policy 
+            # Políticas de acesso padronizadas 
